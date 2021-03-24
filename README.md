@@ -6,7 +6,7 @@ This is an implementation of varios Data Structure in JavaScript.
 This instruction will help you use the implemented data structure and do some testing in your machine.
 ### Using the Code
 For running this code you don't need to install any dependency. You can import it from the **data-structure** folder. The provided data structure implementation are:
-- [Linked List](./data-structure/LinkedList/README.md)
+- [Linked List](./data-structure/LinkedList/)
 ### Running the Test
 For running the test code, firstly you need to install the depedency listed on the **package.json**. To install it you can run the following command:
 
