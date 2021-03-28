@@ -39,7 +39,7 @@ class BinaryTree {
   }
 
   display() {
-    console.log(this.root.data);
+    console.log("data: " + this.root.data);
     this.traverseLeafs(this.root);
   }
 
@@ -51,13 +51,13 @@ class BinaryTree {
 
     if (node.left !== null) {
       console.log("/");
-      console.log(node.left.data);
+      console.log("data: " + node.left.data);
       this.traverseLeafs(node.left);
     }
 
     if (node.right !== null) {
       console.log("\\");
-      console.log(node.right.data);
+      console.log("data: " + node.right.data);
       this.traverseLeafs(node.right);
     }
   }

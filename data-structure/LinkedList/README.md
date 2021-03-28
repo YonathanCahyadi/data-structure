@@ -1,7 +1,15 @@
 # Linked List
-A linked list is a linear collection of elements which the position in memory is not continuous.  
+A linked list is a linear collection of elements which the **position in memory is not continuous.**
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Singly-linked-list.svg" alt="linked-list.svg"/>
+<div>
+    <style>
+        img { background-color: white; margin: auto; }
+        .img-container { display: flex }
+    </style>
+    <div class="img-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Singly-linked-list.svg" alt="linked-list.svg"/>
+    </div>
+</div>
 
 ## Using the Code
 You can use the implementation by importing it from the data-structure folder. For example if your main file is on the root folder. The import statement would be like:

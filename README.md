@@ -9,12 +9,20 @@ For running this code you don't need to install any dependency. You can import i
 - [Linked List](./data-structure/LinkedList/)
 ### Running the Test
 For running the test code, firstly you need to install the depedency listed on the **package.json**. To install it you can run the following command:
+#### npm
+    npm install
 
-    npm install or yarn install
+#### yarn
+    yarn install
 
 Then after the installation is done, you can run this command:
 
-    npm run test or yarn test
+#### npm
+    npm run test
+
+#### yarn
+    yarn test
+
 
 This will run the automated test, that was stored on **test** folder.
 
