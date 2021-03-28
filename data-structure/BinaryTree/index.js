@@ -6,6 +6,52 @@ class Node {
   }
 }
 
+class BinaryTreeSearch {
+  constructor(binaryTreeRoot) {
+    this.root = binaryTreeRoot;
+  }
+
+  depthFirstTraversal(algorithm = "preorder", callback) {
+    if (!this.root) return;
+
+    if (algorithm === "preorder") {
+      this.#depthFirstTraversalPreorder(this.root, callback);
+    } else if (algorithm === "inorder") {
+      this.#depthFirstTraversalInorder(this.root, callback);
+    } else if (algorithm === "postorder") {
+      this.#depthFirstTraversalPostorder(this.root, callback);
+    }
+  }
+
+  #depthFirstTraversalPreorder = (node, callback) => {
+    if (!node) return;
+
+    if (typeof callback === "function" && callback !== undefined) callback(node.data);
+
+    if (node.left) this.#depthFirstTraversalPreorder(node.left, callback);
+    if (node.right) this.#depthFirstTraversalPreorder(node.right, callback);
+  };
+
+  #depthFirstTraversalInorder = (node, callback) => {
+    if (!node) return;
+
+    if (node.left) this.#depthFirstTraversalInorder(node.left, callback);
+
+    if (typeof callback === "function" && callback !== undefined) callback(node.data);
+
+    if (node.right) this.#depthFirstTraversalInorder(node.right, callback);
+  };
+
+  #depthFirstTraversalPostorder = (node, callback) => {
+    if (!node) return;
+
+    if (node.left) this.#depthFirstTraversalPostorder(node.left, callback);
+    if (node.right) this.#depthFirstTraversalPostorder(node.right, callback);
+
+    if (typeof callback === "function" && callback !== undefined) callback(node.data);
+  };
+}
+
 class BinaryTree {
   constructor() {
     this.root = null;
@@ -38,42 +84,28 @@ class BinaryTree {
     }
   }
 
-  display() {
-    console.log("data: " + this.root.data);
-    this.traverseLeafs(this.root);
-  }
+  display({ method = "dfs", config: { algorithm = "preorder" } }) {
+    const binaryTreeSearch = new BinaryTreeSearch(this.root);
 
-  traverseLeafs(node) {
-    if (node === null) {
-      console.log(null);
-      return;
-    }
-
-    if (node.left !== null) {
-      console.log("/");
-      console.log("data: " + node.left.data);
-      this.traverseLeafs(node.left);
-    }
-
-    if (node.right !== null) {
-      console.log("\\");
-      console.log("data: " + node.right.data);
-      this.traverseLeafs(node.right);
-    }
+    if (method === "bfs") return;
+    else if (method === "dfs") binaryTreeSearch.depthFirstTraversal(algorithm, console.log);
   }
 }
 
 function main() {
   const binaryTree = new BinaryTree();
-  binaryTree.insert(3);
-  binaryTree.insert(2);
-  binaryTree.insert(1);
-  binaryTree.insert(5);
-  binaryTree.insert(10);
+  binaryTree.insert(20);
+  binaryTree.insert(15);
+  binaryTree.insert(18);
+  binaryTree.insert(13);
+  binaryTree.insert(25);
+  binaryTree.insert(30);
 
-  for (let i = 0; i < 10; i++) binaryTree.insert((Math.random() * 10) % 10);
-
-  binaryTree.display();
+  binaryTree.display({ method: "dfs", config: { algorithm: "preorder" } });
+  console.log();
+  binaryTree.display({ method: "dfs", config: { algorithm: "inorder" } });
+  console.log();
+  binaryTree.display({ method: "dfs", config: { algorithm: "postorder" } });
 }
 
 main();
